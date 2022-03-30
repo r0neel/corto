@@ -1,4 +1,4 @@
-# corto :italy:
+# corto :rainbow_flag:  
 
 With this app, we provide a link shortener so that **www.mywebsite.com/portfolio/clients/europe/italy** becames as sexy as **corto/Abc56hgs**.
 
@@ -31,3 +31,6 @@ No fuss, users can input their long url in a variety of forms, for example:
 ### Our live website
 
 https://cortofy.herokuapp.com/
+
+
+&copy; All rights reserved. 
