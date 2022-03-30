@@ -23,6 +23,8 @@ label {
 
 h2 {
   font-weight: 3000;
+  text-align: center;
+  overflow-wrap: break-word;
 }
 
 .new-wrapper {
@@ -35,8 +37,8 @@ h2 {
   font-family: "Italiana", serif;
   font-weight: bold;
   text-align: center;
-  padding: 60px 100px 100px;
-  margin: 25px 0px 100px;
+  padding: 5rem;
+  margin: 1rem;
   border-radius: 50%;
 }
 
