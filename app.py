@@ -1,22 +1,13 @@
-<<<<<<< HEAD
-from enum import unique
-from flask import Flask, render_template, request
-from flask_sqlalchemy import SQLAlchemy
-
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
-db = SQLAlchemy(app)
-
-
-class Url(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    fullUrl = db.Column(db.String, unique=True)
-    shortUrl = db.Column(db.String(30), unique=True)
-=======
 from flask import Flask, render_template, request, redirect
 
-
 app = Flask(__name__)  # noqa: E402
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
+# db = SQLAlchemy(app)
+
+# class Url(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     fullUrl = db.Column(db.String, unique=True)
+#     shortUrl = db.Column(db.String(30), unique=True)
 
 urls = {"abc", "cde"}  # noqa: E402
 
@@ -27,7 +18,6 @@ import string  # noqa: E402
 def generate_short_id(num_of_chars: int):
     # """Function to generate short_id of specified number of characters"""
     return ''.join(choice(string.ascii_letters+string.digits) for _ in range(num_of_chars))
->>>>>>> 6cb4cbc0fd286cbe5775e929cb5a9741638e5c08
 
 
 @app.route('/')
