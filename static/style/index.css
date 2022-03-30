@@ -49,8 +49,10 @@ h2 {
 }
 
 footer {
+  font-family: "Italianno", cursive;
   color: #fdfbf9;
   padding: 5px;
+  font-size: 25px;
 }
 
 .navbar-brand {
