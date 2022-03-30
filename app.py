@@ -44,5 +44,19 @@ def corto_url(string_id):
             return redirect("/", code=302)
 
 
+@app.errorhandler(404)
+def page_not_found(err):
+    return render_template('errors/404.html'), 404
+
+
+# @app.errorhandler(405)
+# def metod_not_allowed(err):
+#     return render_template('errors/405.html'), 405
+
+
+# @app.errorhandler(500)
+# def internal_server_error(err):
+#     return render_template('errors/500.html'), 500
+
 if __name__ == "__main__":
     app.run(debug=True)
