@@ -2,6 +2,7 @@
 from flask import Flask, render_template, request, redirect
 from random import choice  # noqa: E402
 import string  # noqa: E402
+import sqlite3
 
 app = Flask(__name__)  # noqa: E402
 # db = SQLAlchemy(app)
@@ -12,6 +13,12 @@ app = Flask(__name__)  # noqa: E402
 #     shortUrl = db.Column(db.String(30), unique=True)
 
 urls = {"abc", "cde"}  # noqa: E402
+
+
+def get_db_connection():
+    conn = sqlite3.connect('database.db')
+    conn.row_factory = sqlite3.Row
+    return conn
 
 
 def generate_short_id(num_of_chars: int):
@@ -28,7 +35,14 @@ def home():
 def create_corto():
     if request.method == 'POST':
         corto_id = generate_short_id(8)
-        print(f"hello I have been posted {corto_id}")
+        full_url = request.form.get("full-url")
+
+        conn = get_db_connection()
+        conn = get_db_connection()
+        conn.execute('INSERT INTO urls (full_url, short_url) VALUES (?, ?)',
+                     (full_url, corto_id))
+        conn.commit()
+        conn.close()
         # print(request.form)
         # piece_count = request.form['piece_count']
         # result = pricer.predict(piece_count)
