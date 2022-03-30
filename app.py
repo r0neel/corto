@@ -54,11 +54,9 @@ def create_corto():
 @app.route('/corto/<string_id>', methods=['GET', 'POST'])
 def corto_url(string_id):
     corto_id = string_id
-    print(corto_id)
     conn = get_db_connection()
     url = conn.execute(
         'SELECT full_url FROM urls WHERE short_url=?', (corto_id,)).fetchone()
-    print(url[0])
     conn.close()
     if request.method == 'GET':
         if "http" in url[0]:
