@@ -36,12 +36,17 @@ def create_corto():
     if request.method == 'POST':
         corto_id = generate_short_id(8)
         full_url = request.form.get("full-url")
+        conn = get_db_connection()
 
-        conn = get_db_connection()
-        conn = get_db_connection()
-        conn.execute('INSERT INTO urls (full_url, short_url) VALUES (?, ?)',
-                     (full_url, corto_id))
-        conn.commit()
+        url = conn.execute(
+            'SELECT short_url FROM urls WHERE full_url =?', (full_url,)).fetchone()
+        if url is None:
+            conn.execute('INSERT INTO urls (full_url, short_url) VALUES (?, ?)',
+                         (full_url, corto_id))
+            conn.commit()
+        else:
+            return render_template('home.html', new_corto_url=url[0])
+
         conn.close()
         # print(request.form)
         # piece_count = request.form['piece_count']
@@ -54,11 +59,17 @@ def create_corto():
 
 @app.route('/corto/<string_id>', methods=['GET', 'POST'])
 def corto_url(string_id):
+    corto_id = string_id
+    conn = get_db_connection()
+    url = conn.execute(
+        'SELECT full_url FROM urls WHERE short_url =?', (corto_id,)).fetchone()
+    print(url[0])
+    conn.close()
     if request.method == 'GET':
-        if string_id in urls:
-            return redirect("http://www.example.com", code=302)
+        if "http" in url[0]:
+            return redirect(url[0])
         else:
-            return redirect("/", code=302)
+            return redirect("http://" + url[0])
 
 
 if __name__ == "__main__":
