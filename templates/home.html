@@ -8,7 +8,7 @@
     <input type="submit" value="submit">
 </form>
 {% if new_corto_url %}
-<h2> <a href={{full_url}}> {{new_corto_url}} </a> </h2>
+<h2> <a href="{{full_url}}" > {{new_corto_url}} </a> </h2>
 {% endif %}
 
 <script src="{{ url_for('static', filename='/js/helper.js') }}"></script>

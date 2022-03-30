@@ -31,38 +31,33 @@ def home():
     return render_template('home.html')
 
 
-@app.route('/corto', methods=['GET', 'POST'])
+@app.route('/corto', methods=['POST'])
 def create_corto():
-    if request.method == 'POST':
+    full_url = request.form.get("full-url")
+    conn = get_db_connection()
+    url = conn.execute(
+        'SELECT short_url FROM urls WHERE full_url =?', (full_url,)).fetchone()
+    if url is None:
         corto_id = generate_short_id(8)
-        full_url = request.form.get("full-url")
-        conn = get_db_connection()
-
-        url = conn.execute(
-            'SELECT short_url FROM urls WHERE full_url =?', (full_url,)).fetchone()
-        if url is None:
-            conn.execute('INSERT INTO urls (full_url, short_url) VALUES (?, ?)',
-                         (full_url, corto_id))
-            conn.commit()
-        else:
-            return render_template('home.html', new_corto_url=url[0])
-
+        conn.execute('INSERT INTO urls (full_url, short_url) VALUES (?, ?)',
+                     (full_url, corto_id))
+        conn.commit()
         conn.close()
-        # print(request.form)
-        # piece_count = request.form['piece_count']
-        # result = pricer.predict(piece_count)
-        return render_template('home.html', new_corto_url=to_print, full_url=fname)
+        corto_url = "corto/"+corto_id
     else:
-        pass
-        # return render_template('predict.html', default=0, result=0, title='Predict')
+        corto_url = "corto/"+url[0]
+        return render_template('home.html', new_corto_url=url[0], full_url=corto_url)
+
+    return render_template('home.html', new_corto_url=corto_id, full_url=corto_url)
 
 
 @app.route('/corto/<string_id>', methods=['GET', 'POST'])
 def corto_url(string_id):
     corto_id = string_id
+    print(corto_id)
     conn = get_db_connection()
     url = conn.execute(
-        'SELECT full_url FROM urls WHERE short_url =?', (corto_id,)).fetchone()
+        'SELECT full_url FROM urls WHERE short_url=?', (corto_id,)).fetchone()
     print(url[0])
     conn.close()
     if request.method == 'GET':
