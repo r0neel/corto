@@ -1,4 +1,8 @@
-body h1 {
+body {
+  background-color: #fdfbf9;
+}
+
+h1 {
   font-family: "Italianno", cursive;
   font-size: 150px;
 }
@@ -32,7 +36,7 @@ h2 {
   font-weight: bold;
   text-align: center;
   padding: 60px 100px 100px;
-  margin: 25px;
+  margin: 25px 0px 100px;
   border-radius: 50%;
 }
 

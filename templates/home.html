@@ -1,13 +1,20 @@
 {% extends "layout.html" %} {% block content %}
 <div class="form-container">
   <h3 class="title">Accorcia il tuo URL</h3>
-  <form class="mt-3 form-horizontal" id="new-url" action="/corto" method="POST">
-    <label for="new-url">Entrare URL: </label>
-    <input type="text" name="new-url" />
+  <form
+    class="mt-3 form-horizontal"
+    id="full-url"
+    action="/corto"
+    method="POST"
+  >
+    <label for="full-url">Entrare URL: </label>
+    <input type="text" name="full-url" />
     <input type="submit" value="shorten" />
     <div class="new-wrapper">
       {% if new_corto_url %}
-      <h2>Nuovo URL:<a href="{{full_url}}"> {{new_corto_url}} </a></h2>
+      <h2>
+        Nuovo URL:<a href="{{full_url}}"> localhost:5000/{{full_url}} </a>
+      </h2>
       {% endif %}
     </div>
   </form>
