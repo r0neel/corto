@@ -23,11 +23,13 @@ def home():
 def create_corto():
     if request.method == 'POST':
         corto_id = generate_short_id(8)
+        fname = request.form.get("full-url")
+        to_print = "corto/" + corto_id
         print(f"hello I have been posted {corto_id}")
         # print(request.form)
         # piece_count = request.form['piece_count']
         # result = pricer.predict(piece_count)
-        return render_template('home.html', title='Result')
+        return render_template('home.html', new_corto_url=to_print)
     else:
         pass
         # return render_template('predict.html', default=0, result=0, title='Predict')
