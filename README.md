@@ -1,4 +1,4 @@
-# corto
+# corto :italy:
 
 With this app, we provide a link shortener so that **www.mywebsite.com/portfolio/clients/europe/italy** becames as sexy as **corto/Abc56hgs**.
 
@@ -22,7 +22,7 @@ Given our code is protected by intellectual property, we are not going to explai
 
 ### Input
 
-- No fuss, users can input their long url in a variety of forms, for example:
+No fuss, users can input their long url in a variety of forms, for example:
 
 - https://www.worldwildlife.org/
 - www.worldwildlife.org/
