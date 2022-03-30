@@ -1,0 +1,36 @@
+body h1 {
+  font-family: "Italianno", cursive;
+  font-size: 150px;
+}
+
+input {
+  border: 5px solid #c4a484;
+  border-radius: 15px;
+  padding: 10px;
+  background-color: #faf7ed;
+  font-family: "Italiana", serif;
+  font-size: 20px;
+}
+
+label {
+  font-size: 20px;
+  font-family: "Italiana", serif;
+}
+
+.form-container {
+  background-color: #e8ddbf;
+  font-family: "Italiana", serif;
+  font-weight: bold;
+  text-align: center;
+  padding: 60px 100px 100px;
+  margin: 25px;
+  border-radius: 50%;
+}
+
+.form-container .title {
+  font-size: 60px;
+  font-weight: 1000;
+  margin: 20px 0 40px;
+  display: inline-block;
+  position: relative;
+}
