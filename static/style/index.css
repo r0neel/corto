@@ -17,6 +17,15 @@ label {
   font-family: "Italiana", serif;
 }
 
+h2 {
+  font-weight: 3000;
+}
+
+.new-wrapper {
+  margin: 40px 25px 0px;
+  font-weight: 10;
+}
+
 .form-container {
   background-color: #e8ddbf;
   font-family: "Italiana", serif;

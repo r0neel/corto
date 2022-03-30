@@ -5,6 +5,11 @@
     <label for="new-url">Entrare URL: </label>
     <input type="text" name="new-url" />
     <input type="submit" value="shorten" />
+    <div class="new-wrapper">
+      {% if new_corto_url %}
+      <h2>Nuovo URL:<a href="{{full_url}}"> {{new_corto_url}} </a></h2>
+      {% endif %}
+    </div>
   </form>
 </div>
 
