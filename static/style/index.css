@@ -1,0 +1,62 @@
+body {
+  background-color: #fdfbf9;
+}
+
+h1 {
+  font-family: "Italianno", cursive;
+  font-size: 150px;
+}
+
+input {
+  border: 5px solid #c4a484;
+  border-radius: 15px;
+  padding: 10px;
+  background-color: #faf7ed;
+  font-family: "Italiana", serif;
+  font-size: 20px;
+}
+
+label {
+  font-size: 20px;
+  font-family: "Italiana", serif;
+}
+
+h2 {
+  font-weight: 3000;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+.new-wrapper {
+  margin: 40px 25px 0px;
+  font-weight: 10;
+}
+
+.form-container {
+  background-color: #e8ddbf;
+  font-family: "Italiana", serif;
+  font-weight: bold;
+  text-align: center;
+  padding: 5rem;
+  margin: 1rem;
+  border-radius: 50%;
+}
+
+.form-container .title {
+  font-size: 60px;
+  font-weight: 1000;
+  margin: 20px 0 40px;
+  display: inline-block;
+  position: relative;
+}
+
+footer {
+  font-family: "Italianno", cursive;
+  color: #fdfbf9;
+  padding: 5px;
+  font-size: 25px;
+}
+
+.navbar-brand {
+  font-size: 40px;
+}
