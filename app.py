@@ -29,7 +29,7 @@ def create_corto():
         # print(request.form)
         # piece_count = request.form['piece_count']
         # result = pricer.predict(piece_count)
-        return render_template('home.html', new_corto_url=to_print)
+        return render_template('home.html', new_corto_url=to_print, full_url=fname)
     else:
         pass
         # return render_template('predict.html', default=0, result=0, title='Predict')
