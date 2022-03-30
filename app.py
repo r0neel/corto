@@ -1,9 +1,16 @@
+from enum import unique
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
 db = SQLAlchemy(app)
+
+
+class Url(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    fullUrl = db.Column(db.String, unique=True)
+    shortUrl = db.Column(db.String(30), unique=True)
 
 
 @app.route('/')
