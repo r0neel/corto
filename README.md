@@ -18,7 +18,7 @@ Given our code is protected by intellectual property, we are not going to explai
 
 - run `pipenv shell`
 
-- run `pipenv run dev`
+- run `pipenv run dev` / runs on local port 5000
 
 ### Input
 
@@ -27,3 +27,7 @@ Given our code is protected by intellectual property, we are not going to explai
 - https://www.worldwildlife.org/
 - www.worldwildlife.org/
 - worldwildlife.org/
+
+### Our live website
+
+https://cortofy.herokuapp.com/
