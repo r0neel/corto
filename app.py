@@ -51,7 +51,7 @@ def create_corto():
         # print(request.form)
         # piece_count = request.form['piece_count']
         # result = pricer.predict(piece_count)
-        return render_template('home.html', new_corto_url=corto_id)
+        return render_template('home.html', new_corto_url=to_print, full_url=fname)
     else:
         pass
         # return render_template('predict.html', default=0, result=0, title='Predict')
@@ -71,6 +71,20 @@ def corto_url(string_id):
         else:
             return redirect("http://" + url[0])
 
+
+@app.errorhandler(404)
+def page_not_found(err):
+    return render_template('errors/404.html'), 404
+
+
+# @app.errorhandler(405)
+# def metod_not_allowed(err):
+#     return render_template('errors/405.html'), 405
+
+
+# @app.errorhandler(500)
+# def internal_server_error(err):
+#     return render_template('errors/500.html'), 500
 
 if __name__ == "__main__":
     app.run(debug=True)
